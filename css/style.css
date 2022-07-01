@@ -307,7 +307,7 @@ textarea{
 }
 
 .site-main .subscribe-us-area .input-textbox, .site-main .subscribe-us-area .textAreaExample1{
-    margin: 10px 0vw
+    margin: 10px 0vw;
 }
 
 .site-main .subscribe-us-area .input-textbox #error-code-name, .site-main .subscribe-us-area .input-textbox #error-code-mail{

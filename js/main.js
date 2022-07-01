@@ -39,27 +39,6 @@ $(document).ready(function () {
 
     navbarFixed();
 
-    // $.validator.addMethod("nowhitespace", function(value, element) {
-    //     return this.optional(element) || /^\S+$/i.test(value);
-    // }, "No white space please");
-
-    // $('#contact-form').validate({
-    //     rules:{
-    //         username:{
-    //             required:true,
-    //             nowhitespace: true,
-    //             minlength:4
-    //         },
-    //         usermail:{
-    //             required:true,
-    //             nowhitespace: true,
-    //             email:true,
-    //         }
-    //     }
-    // })
-
-
-
     $("#submit-form").submit((e)=>{
 
         e.preventDefault()
