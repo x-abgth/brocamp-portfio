@@ -344,6 +344,12 @@ textarea{
     padding: .7rem 2rem;
 }
 
+#name-error, #email-error, #msg-error{
+    color: darkred;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
 /* End subscribe me */ 
 
 /* Footer Area */ 

@@ -39,20 +39,29 @@ $(document).ready(function () {
 
     navbarFixed();
 
-    $('#contact-form').validate({
-        rules:{
-            username:{
-                required:true,
-                minlength:4
-            },
-            usermail:{
-                required:true,
-                email:true,
-            }
-        }
-    })
+    // $.validator.addMethod("nowhitespace", function(value, element) {
+    //     return this.optional(element) || /^\S+$/i.test(value);
+    // }, "No white space please");
+
+    // $('#contact-form').validate({
+    //     rules:{
+    //         username:{
+    //             required:true,
+    //             nowhitespace: true,
+    //             minlength:4
+    //         },
+    //         usermail:{
+    //             required:true,
+    //             nowhitespace: true,
+    //             email:true,
+    //         }
+    //     }
+    // })
+
+
 
     $("#submit-form").submit((e)=>{
+
         e.preventDefault()
         $.ajax({
             url:"https://script.google.com/macros/s/AKfycbwBI39PXQHPV7ZbtX3eAffvM3ENRwLuAUreVFEyz5Erhg1nQUxGDCk-GFfS8BCWhTekKQ/exec",
@@ -76,3 +85,58 @@ $(document).ready(function () {
         }, 3000);
     });
 });
+
+
+var nameErr = document.getElementById('name-error');
+var emailErr = document.getElementById('email-error');
+var msgErr = document.getElementById('msg-error');
+
+function validateName(){
+    var name = document.getElementById('txtname').value;
+
+    if(name.length == 0) {
+        nameErr.innerHTML = 'Name is required';
+        return false;
+    }
+
+    if(!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+        nameErr.innerHTML = 'Enter full name';
+        return false;
+    }
+    nameErr.innerHTML = ""
+    return true
+}
+
+function validateEmail(){
+    var email = document.getElementById('txtemail').value;
+
+    if(email.length == 0) {
+        emailErr.innerHTML = 'Email is required';
+        return false;
+    }
+
+    if(!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+        emailErr.innerHTML = 'Enter a valid email';
+        return false;
+    }
+    emailErr.innerHTML = ""
+    return true
+}
+
+function validateMsg(){
+    var msg = document.getElementById('textAreaExample1').value;
+
+     if(msg.length < 5) {
+        msgErr.innerHTML = 'Please add more content in the message';
+        return false;
+    }
+
+    msgErr.innerHTML = ""
+    return true
+}
+
+function validateForm() {
+    if(!validateName() || !validateEmail() || !validateMsg()) {
+        return false;
+    }
+}

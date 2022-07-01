@@ -358,20 +358,23 @@
                      <form class="w-50" id="submit-form" action="">
                         <div class="row d-flex flex-row flex-wrap">
                              <div class="col input-textbox">
-                                <input name="username" type="text" id="txtname" class="form-control" placeholder="Name">
+                                <input name="username" type="text" id="txtname" class="form-control" placeholder="Name" onkeyup="validateName()">
+                                <label id="name-error"></label>
                             </div>
 
                             <div class="col input-textbox">
-                                <input name="usermail" type="text" id="txtemail" class="form-control" placeholder="Email">
+                                <input name="usermail" type="text" id="txtemail" class="form-control" placeholder="Email" onkeyup="validateEmail()">
+                                <label id="email-error"></label>
                             </div>
 
                             <div class="col textAreaExample1">
-                                <textarea name="message" class="form-control rounded-0" id="textAreaExample1" cols="50" rows="20" placeholder="Send something nice!"></textarea>
+                                <textarea name="message" class="form-control rounded-0" id="textAreaExample1" cols="50" rows="20" placeholder="Send something nice!" onkeyup="validateMsg()"></textarea>
+                                <label id="msg-error"></label>
                             </div>
                             
                             <div class="col">
                                 <div class="btn-submit">
-                                    <button type="submit" class="btn btn-success float-right">Send</button>
+                                    <button type="submit" onclick="return validateForm()" class="btn btn-success float-right">Send</button>
                                 </div>
                             </div>
                         </div>
